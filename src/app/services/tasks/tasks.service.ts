@@ -11,7 +11,11 @@ export class TasksService {
   constructor(private httpClient: HttpClient) { }
 
   public getTasks() : Observable<any> {
-    return this.httpClient.get(this.baseUrl)
+    return this.httpClient.get(this.getUrl())
      .pipe(map((response : Response) => response));
+  }
+
+  private getUrl() {
+    return `${this.baseUrl}`;
   }
 }

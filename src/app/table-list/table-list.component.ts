@@ -17,6 +17,7 @@ export class TableListComponent implements OnInit {
               private contributorService: ContributorsService) { }
 
   ngOnInit() {
+    this.startSubscription();
   }
 
   startSubscription() {

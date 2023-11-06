@@ -12,7 +12,11 @@ export class ContributorsService {
   constructor(private httpClient: HttpClient) { }
 
   public getContributors() : Observable<any> {
-    return this.httpClient.get(this.baseUrl)
+    return this.httpClient.get(this.getUrl())
      .pipe(map((response : Response) => response));
+  }
+
+  private getUrl() {
+    return `${this.baseUrl}`;
   }
 }
