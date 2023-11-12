@@ -9,6 +9,7 @@ import { TaskDialogData } from 'app/models/task-dialog-data';
   styleUrls: ['./table-list-dialog.component.scss']
 })
 export class TableListDialogComponent implements OnInit {
+  dialogData : TaskDialogData;
 
   constructor(private dialogRef: MatDialogRef<TableListDialogComponent>, //kreira se isti dijalog svaki put
     @Inject(MAT_DIALOG_DATA) public data : TaskDialogData ) { } //za transfer podataka matdialogref , podaci koji traju dok traje dialog

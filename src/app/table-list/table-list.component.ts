@@ -32,14 +32,13 @@ export class TableListComponent implements OnInit {
     this.taskService.getTasks().subscribe(res => {
       res.forEach ( item => {
         if(item.assignee !== "") {
-          const contributor = this.contributors.find( con => con.userName == item.assignee );
+          const contributor = this.contributors.find( con => con.userName ==  item.assignee );
           console.log(contributor);
           if (contributor) {
             this.tasks.push({ id : item.id, title : item.title, description : item.description, assignee : contributor })
-          } else {
+          } /*else {
             this.tasks.push({ id : item.id, title : item.title, description : item.description, assignee : new Contributor() })
-          }
-
+          }*/
         } else {
           this.tasks.push({ id : item.id, title : item.title, description : item.description, assignee : new Contributor() })
         }
@@ -52,7 +51,7 @@ export class TableListComponent implements OnInit {
   
 
   openDialog(task : Task) {
-    const dialog = this.dialogModel.open(TableListDialogComponent, { //da li table ili task list comp...??? - treba task...
+    const dialog = this.dialogModel.open(TableListDialogComponent, { 
       width: '600px',
       data: {title: task.title, description: task.description, assignee: task.assignee, contributors: this.contributors}
     });

@@ -12,7 +12,7 @@
         <mat-label>Assignee</mat-label>
         <mat-select [(ngModel)]="data.assignee">
             <mat-option *ngFor="let contributor of data.contributors" [value]="contributor">
-              {{contributor.userName}}
+              {{contributor.firstName}} {{contributor.lastName}}
             </mat-option>
         </mat-select>
     </mat-form-field>
